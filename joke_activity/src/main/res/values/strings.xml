@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">joke_activity_library</string>
+    <string name="extra_joke_key">joke_key</string>
+</resources>
