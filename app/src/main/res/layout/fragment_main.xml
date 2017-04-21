@@ -21,7 +21,14 @@
         android:layout_below="@+id/instructions_text_view"
         android:onClick="tellJoke"
         android:text="@string/button_text"
+        />
 
+
+    <ProgressBar
+        android:id="@+id/pb_joke_fetch"
+        android:layout_width="@dimen/progress_bar_size"
+        android:layout_height="@dimen/progress_bar_size"
+        android:layout_centerInParent="true"
         />
 
     <com.google.android.gms.ads.AdView
