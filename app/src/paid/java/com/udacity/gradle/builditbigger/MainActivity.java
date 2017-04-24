@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final int LOADER_ID = 0;
     private LoaderManager.LoaderCallbacks<String> jokeLoaderCallbacks;
+    private LoaderManager loaderManager;
     private ProgressBar jokeProgressBar;
 
     @Override
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         jokeProgressBar = (ProgressBar) findViewById(R.id.pb_joke_fetch);
         jokeProgressBar.setVisibility(View.INVISIBLE);
         defineLoader();
+        loaderManager = getLoaderManager();
     }
 
     @Override
@@ -89,7 +91,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
-        getLoaderManager().restartLoader(LOADER_ID, null, jokeLoaderCallbacks);
+        showJokeActivity();
+    }
+
+    public void showJokeActivity() {
+        loaderManager.restartLoader(LOADER_ID, null, jokeLoaderCallbacks);
     }
 
 }
