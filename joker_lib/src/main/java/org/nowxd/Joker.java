@@ -5,13 +5,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class Joker {
 
     private static final String jokeFileName = "/jokes.txt";
     private ArrayList<String> jokeList;
-    private int jokeIndex;
 
     private void readJokes() {
 
@@ -35,19 +33,14 @@ public class Joker {
 
     public String getJoke() {
 
-        String joke = jokeList.get(jokeIndex++);
+        int len = jokeList.size();
+        int randomIndex = (int) (Math.random() * len);
 
-        if (jokeIndex >= jokeList.size()) {
-            jokeIndex = 0;
-            Collections.shuffle(jokeList);
-        }
-
-        return joke;
+        return jokeList.get(randomIndex);
 
     }
 
     public Joker() {
-        jokeIndex = 0;
         readJokes();
     }
 

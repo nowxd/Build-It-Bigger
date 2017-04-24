@@ -1,11 +1,10 @@
 package com.udacity.gradle.builditbigger;
 
-import android.content.Context;
 import android.content.Intent;
+import android.content.Loader;
 import android.os.Bundle;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
+import android.app.LoaderManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -56,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
         jokeLoaderCallbacks = new LoaderManager.LoaderCallbacks<String>() {
             @Override
-            public Loader<String> onCreateLoader(int id, Bundle args) {
+            public android.content.Loader<String> onCreateLoader(int id, Bundle args) {
 
                 jokeProgressBar.setVisibility(View.VISIBLE);
 
@@ -90,8 +89,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
-        getSupportLoaderManager().restartLoader(LOADER_ID, null, jokeLoaderCallbacks);
-
+        getLoaderManager().restartLoader(LOADER_ID, null, jokeLoaderCallbacks);
     }
 
 }

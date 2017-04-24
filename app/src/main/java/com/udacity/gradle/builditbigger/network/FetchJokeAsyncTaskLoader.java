@@ -1,7 +1,7 @@
 package com.udacity.gradle.builditbigger.network;
 
+import android.content.AsyncTaskLoader;
 import android.content.Context;
-import android.support.v4.content.AsyncTaskLoader;
 
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
@@ -14,7 +14,7 @@ import java.io.IOException;
 
 public class FetchJokeAsyncTaskLoader extends AsyncTaskLoader<String> {
 
-    private static final boolean DEPLOY_LOCAL = false;
+    private static final boolean LOCAL_EMULATOR = true;
 
     private static MyApi myApiService = null;
 
@@ -25,9 +25,9 @@ public class FetchJokeAsyncTaskLoader extends AsyncTaskLoader<String> {
     @Override
     public String loadInBackground() {
 
-        if(myApiService == null) {  // Only do this once
+        if (myApiService == null) {  // Only do this once
 
-            if (DEPLOY_LOCAL) initLocalApi();
+            if (LOCAL_EMULATOR) initLocalApi();
             else initLiveApi();
 
         }
@@ -39,7 +39,6 @@ public class FetchJokeAsyncTaskLoader extends AsyncTaskLoader<String> {
         }
 
     }
-
 
     private void initLocalApi() {
 
@@ -68,7 +67,5 @@ public class FetchJokeAsyncTaskLoader extends AsyncTaskLoader<String> {
         myApiService = builder.build();
 
     }
-
-
 
 }
