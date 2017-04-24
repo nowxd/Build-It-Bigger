@@ -14,7 +14,7 @@ import java.io.IOException;
 
 public class FetchJokeAsyncTaskLoader extends AsyncTaskLoader<String> {
 
-    private static final boolean LOCAL_EMULATOR = true;
+    private static final boolean LOCAL_EMULATOR = false;
 
     private static MyApi myApiService = null;
 
