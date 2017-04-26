@@ -11,6 +11,8 @@ public class Joker {
     private static final String jokeFileName = "/jokes.txt";
     private ArrayList<String> jokeList;
 
+    private static final String ERROR_MESSAGE = "No jokes are available";
+
     private void readJokes() {
 
         try {
@@ -32,6 +34,8 @@ public class Joker {
     }
 
     public String getJoke() {
+
+        if (jokeList == null || jokeList.isEmpty()) return ERROR_MESSAGE;
 
         int len = jokeList.size();
         int randomIndex = (int) (Math.random() * len);
